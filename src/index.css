@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #080C12;
+  --color-secondary: #0B266A;
+  --color-accent: #1756EF;
+
+  --color-light-100: #cecefb;
+  --color-light-200: #a8b5db;
+
+  --color-gray-100: #9ca4ab;
+
+  --color-dark-100: #0f0d23;
+
+  --font-dm-sans: DM Sans, sans-serif;
+
+  --breakpoint-xs: 480px;
+
+  --background-image-hero-pattern: url("/card_referalcode.png");
+}
+
+@layer base {
+  body {
+    font-family: "DM Sans", serif;
+    font-optical-sizing: auto;
+    background: var(--color-primary);
+  }
+
+  h1 {
+    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-white sm:text-3xl;
+  }
+
+  main {
+    @apply min-h-screen relative bg-transparent;
+    /* @apply min-h-screen relative bg-primary; */
+  }
+
+  header {
+    @apply m-0;
+    /* @apply sm:mt-10 m-0; */
+  }
+
+  header img {
+    @apply w-full max-w-lg h-auto object-contain mx-auto drop-shadow-md;
+  }
+}
+
+@layer components {
+  .gradient {
+    background: var(--color-primary);
+    background: linear-gradient(180deg, var(--color-secondary) 0%, rgba(7,2,88,1) 5%, var(--color-primary) 30%);
+    @apply relative w-full;
+    /* background: rgb(9,9,121);
+    background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(7,2,88,1) 5%, #030014 30%); */
+  }
+
+  .pattern {
+    @apply bg-hero-pattern w-full h-screen bg-center bg-cover absolute border-2 border-red-500 z-0;
+  }
+
+  .wrapper {
+    @apply px-5 py-4 xs:p-10 max-w-[480px] mx-auto flex flex-col justify-items-center relative z-10 text-white;
+    /* @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col justify-items-center relative z-10; */
+  }
+
+  .card-info__total-asset {
+    /* @media only screen and (max-width: 428px) { */
+    @apply w-full h-auto flex flex-col justify-items-center gap-5 mx-auto mb-6 py-4 text-center text-white;
+    /* } */
+
+    /* & div {
+      @apply mx-auto
+    } */
+    & .circle {
+      @apply w-11 h-11 rounded-full bg-gray-400;
+    }
+
+  }
+
+  .wallet-card {
+    @apply w-full h-auto flex flex-row justify-between items-center py-[12px] text-white;
+
+    & .wrap-wallet {
+      @apply flex flex-row items-center gap-2;
+      
+      & .icon-wallet {
+        @apply relative w-11 h-11;
+        & img {
+          @apply w-6 h-6 mx-auto my-2;
+        }
+      }
+
+      & .wallet-info {
+        & p {
+          @apply text-xs
+        }
+        & div {
+          @apply text-sm
+        }
+      }
+    }
+
+    & .icon-wallet {
+      @apply w-11 h-11 border border-gray-300;
+    }
+  }
+ 
+  .card-info__total-turnover {
+    @apply w-full flex flex-row justify-between items-center my-2 pl-6 pr-3 py-3 border border-gray-400 rounded-2xl;
+    
+    & .total-turnover {
+      & div {
+        @apply text-2xl;
+      }
+      & span {
+        @apply text-xs;
+      }
+    }
+    & .btn-turnover {
+      @apply w-11 h-11;
+      & .logo-turnover {
+        @apply w-6 h-6 m-auto translate-y-3;
+      }
+    }
+  }
+
+  .card-transaction {
+    @apply flex justify-between my-2 p-4 rounded-2xl border border-red-400;
+    & .right {
+      @apply flex gap-3;
+      & .logo-crypto {
+        @apply w-12 h-12 rounded-full overflow-hidden;
+      }
+    }
+  }
+
+  .card-task {
+    @apply flex justify-between items-center px-[17px] py-3.5 rounded-2xl border border-pink-500;
+    & div {
+      @apply flex flex-row gap-2;
+      & .icon {
+        height: 1cap;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--color-secondary);
+      }
+    }
+  }
+
+  .card-laderboard {
+    @apply flex justify-between my-2 px-[17px] py-3.5  rounded-2xl border border-orange-400;
+    & .left {
+      @apply relative flex items-center flex-auto gap-2;
+      & .icon {
+        height: 1cap;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--color-secondary);
+      }
+    }
+    & .right {
+      @apply w-7 h-9 px-0 py-[1px] -skew-3;
+      & .rank {
+        @apply w-full h-full text-center text-base font-semibold leading-9 bg-accent;
+        /* @apply w-8 h-9 text-center text-sm font-semibold leading-9 bg-accent; */
+        /* @apply w-8 h-9 text-center text-sm font-semibold leading-9 bg-accent rotate-[10deg]; */
+      }
+    }
+  }
+
+  .card-referalcode {
+    @apply bg-hero-pattern bg-no-repeat w-[342px] h-[610px] flex justify-items-center flex-col text-center mx-auto px-7 border border-pink-600;
+    & div.top {
+      @apply mt-20;
+      & .text {
+        @apply flex flex-col gap-3 mt-6 font-normal;
+        & h4 {
+          @apply text-2xl leading-7 text-white;
+        }
+        & p {
+          @apply text-base leading-6 text-accent;
+        }
+      }
+    }
+    & div.middle {
+      @apply flex justify-between w-full mx-auto;
+    }
+    & div.bottom {
+      @apply flex flex-col justify-center w-full h-auto mx-auto mt-[64px];
+    }
+  }
+  
+  .card-point {
+    @apply  relative w-[138px] h-[88px] flex flex-col justify-center items-center gap-1 px-[14px] rounded-2xl border border-accent/50;
+    & .premium {
+      @apply absolute -top-1.5 -left-0.5 flex align-baseline items-center gap-0.5 pl-2 pr-2.5 py-0.5 bg-accent rounded-tl-xl rounded-br-xl;
+      & .icon {
+        height: 1cap;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .card-history_game {
+    @apply flex justify-between my-2 p-4 rounded-2xl border border-red-400;
+    & .left {
+      @apply flex items-center gap-3 w-fit;
+      & .logo-crypto {
+        @apply w-12 h-12 rounded-full overflow-hidden;
+      }
+    } 
+    & .right {
+      @apply flex flex-col justify-between items-end;
+      /* @apply flex flex-col items-end text-right text-sm font-light tracking-wider pt-1 border border-green-300; */
+      /* @apply flex flex-col justify-between items-end border border-green-400 gap-0 text-right text-sm font-light tracking-wider pt-1; */
+      & div {
+        /* @apply flex items-center gap-1.5; */
+        & .icon {
+          height: 2cap;
+          padding: 4px;
+          aspect-ratio: 1;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+
+/* radial-gradient(140% 170% at 50% 140%,#000 40%,#63e 100%) */
+/* <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"> */
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
