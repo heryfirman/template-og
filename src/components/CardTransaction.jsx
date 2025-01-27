@@ -5,19 +5,19 @@ export default function CardTransaction() {
         <div className="logo-crypto">
           <img src="./btc-logo.svg" alt="" />
         </div>
-        <div className="flex flex-col gap-1.5 pt-1">
-          <div className="relative text-[18px] font-medium tracking-wider leading-2">
-            BTC
-            <span className="inline-block ml-3 px-3 py-[1px] text-xs font-light tracking-wide rounded-full border border-blue-700">
+        <div className="flex flex-col justify-between gap-1">
+          <div className="relative flex align-baseline items-center gap-1.5">
+            <div className="text-base font-medium tracking-wider leading-0">BTC</div>
+            <span className="inline-block px-2.5 text-[11px] font-light tracking-wide rounded-full border border-blue-700">
               XRD
             </span>
           </div>
-          <div className="text-sm text-gray-300">Bictoin</div>
+          <div className="text-sm font-light text-gray-300">Bictoin</div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-1.5 text-right text-sm font-light tracking-wider pt-1">
-        <div>1.00</div>
+      <div className="flex flex-col justify-between text-right text-sm font-light tracking-wide">
+        <div className="text-gray-300">1.00</div>
         <div>$24,026,780,882</div>
       </div>
     </div>

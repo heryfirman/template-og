@@ -45,7 +45,6 @@
 
   header {
     @apply m-0;
-    /* @apply sm:mt-10 m-0; */
   }
 
   header img {
@@ -58,27 +57,19 @@
     background: var(--color-primary);
     background: linear-gradient(180deg, var(--color-secondary) 0%, rgba(7,2,88,1) 5%, var(--color-primary) 30%);
     @apply relative w-full;
-    /* background: rgb(9,9,121);
-    background: linear-gradient(180deg, rgba(9,9,121,1) 0%, rgba(7,2,88,1) 5%, #030014 30%); */
   }
 
   .pattern {
-    @apply bg-hero-pattern w-full h-screen bg-center bg-cover absolute border-2 border-red-500 z-0;
+    @apply absolute w-full h-40 bg-gradient-to-b from-secondary to-primary z-0;
   }
 
   .wrapper {
     @apply px-5 py-4 xs:p-10 max-w-[480px] mx-auto flex flex-col justify-items-center relative z-10 text-white;
-    /* @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col justify-items-center relative z-10; */
   }
 
   .card-info__total-asset {
     /* @media only screen and (max-width: 428px) { */
     @apply w-full h-auto flex flex-col justify-items-center gap-5 mx-auto mb-6 py-4 text-center text-white;
-    /* } */
-
-    /* & div {
-      @apply mx-auto
-    } */
     & .circle {
       @apply w-11 h-11 rounded-full bg-gray-400;
     }
@@ -109,7 +100,7 @@
     }
 
     & .icon-wallet {
-      @apply w-11 h-11 border border-gray-300;
+      @apply w-11 h-11;
     }
   }
  
@@ -118,10 +109,10 @@
     
     & .total-turnover {
       & div {
-        @apply text-2xl;
+        @apply text-2xl font-normal tracking-wide;
       }
       & span {
-        @apply text-xs;
+        @apply text-xs font-light tracking-wide text-gray-300;
       }
     }
     & .btn-turnover {
@@ -135,9 +126,9 @@
   .card-transaction {
     @apply flex justify-between my-2 p-4 rounded-2xl border border-red-400;
     & .right {
-      @apply flex gap-3;
+      @apply flex gap-2.5;
       & .logo-crypto {
-        @apply w-12 h-12 rounded-full overflow-hidden;
+        @apply w-10 h-10 rounded-full overflow-hidden;
       }
     }
   }
@@ -170,8 +161,6 @@
       @apply w-7 h-9 px-0 py-[1px] -skew-3;
       & .rank {
         @apply w-full h-full text-center text-base font-semibold leading-9 bg-accent;
-        /* @apply w-8 h-9 text-center text-sm font-semibold leading-9 bg-accent; */
-        /* @apply w-8 h-9 text-center text-sm font-semibold leading-9 bg-accent rotate-[10deg]; */
       }
     }
   }
@@ -221,10 +210,7 @@
     } 
     & .right {
       @apply flex flex-col justify-between items-end;
-      /* @apply flex flex-col items-end text-right text-sm font-light tracking-wider pt-1 border border-green-300; */
-      /* @apply flex flex-col justify-between items-end border border-green-400 gap-0 text-right text-sm font-light tracking-wider pt-1; */
       & div {
-        /* @apply flex items-center gap-1.5; */
         & .icon {
           height: 2cap;
           padding: 4px;
@@ -235,10 +221,6 @@
     }
   }
 }
-
-
-/* radial-gradient(140% 170% at 50% 140%,#000 40%,#63e 100%) */
-/* <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"> */
 
 @utility hide-scrollbar {
   -ms-overflow-style: none;
