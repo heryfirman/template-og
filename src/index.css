@@ -51,6 +51,10 @@
   header img {
     @apply w-full max-w-lg h-auto object-contain mx-auto drop-shadow-md;
   }
+
+  .reset-style_link {
+    @apply outline-none focus:outline-none;
+  }
 }
 
 @layer components {
@@ -72,9 +76,8 @@
     /* @media only screen and (max-width: 428px) { */
     @apply w-full h-auto flex flex-col justify-items-center gap-5 mx-auto mb-6 py-4 text-center text-white;
     & .circle {
-      @apply w-11 h-11 rounded-full bg-gray-400;
+      @apply w-11 h-11 rounded-full bg-secondary/20;
     }
-
   }
 
   .wallet-card {
@@ -89,24 +92,22 @@
           @apply w-6 h-6 mx-auto my-2;
         }
       }
-
       & .wallet-info {
         & p {
-          @apply text-xs
+          @apply text-xs font-light text-gray-300;
         }
         & div {
-          @apply text-sm
+          @apply text-sm;
         }
       }
     }
-
     & .icon-wallet {
       @apply w-11 h-11;
     }
   }
  
   .card-info__total-turnover {
-    @apply w-full flex flex-row justify-between items-center my-2 pl-6 pr-3 py-3 border border-gray-400 rounded-2xl;
+    @apply w-full flex flex-row justify-between items-center my-2 pl-6 pr-3 py-3 border border-secondary/30 rounded-2xl backdrop-blur-lg;
     
     & .total-turnover {
       & div {
@@ -125,7 +126,7 @@
   }
 
   .card-transaction {
-    @apply flex justify-between my-0 p-3 rounded-2xl  bg-gradient-to-r from-secondary/20 to-accent/0;
+    @apply flex justify-between my-0 p-3 rounded-2xl bg-gradient_right;
     & .right {
       @apply flex gap-2.5;
       & .logo-crypto {
@@ -139,10 +140,7 @@
     & div {
       @apply flex flex-row gap-2;
       & .icon {
-        height: 1cap;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: var(--color-secondary);
+        @apply align-icon;
       }
     }
   }
@@ -155,10 +153,7 @@
     & .left {
       @apply relative flex items-center flex-auto gap-2;
       & .icon {
-        height: 1cap;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: var(--color-secondary);
+        @apply align-icon;
       }
     }
     & .right {
@@ -196,16 +191,13 @@
     & .premium {
       @apply absolute -top-1.5 -left-0.5 flex align-baseline items-center gap-0.5 pl-2 pr-2.5 py-0.5 bg-accent rounded-tl-xl rounded-br-xl;
       & .icon {
-        height: 1cap;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: transparent;
+        @apply align-icon;
       }
     }
   }
 
   .card-history_game {
-    @apply flex justify-between my-0 p-3 rounded-2xl border border-accent/10 bg-primary;
+    @apply flex justify-between my-0 p-3 rounded-2xl border border-accent/10 bg-gradient_right;
     & .left {
       @apply flex items-center gap-3 w-fit;
       & .logo-crypto {
@@ -216,10 +208,7 @@
       @apply flex flex-col justify-between items-end;
       & div {
         & .icon {
-          height: 2cap;
-          padding: 4px;
-          aspect-ratio: 1;
-          border-radius: 50%;
+          @apply align-icon_2cap p-1;
         }
       }
     }
@@ -230,11 +219,18 @@
     & .card-info {
       @apply flex justify-center items-center align-baseline gap-1;
       & .icon {
-        height: 1cap;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: var(--color-secondary);
+        @apply align-icon;
       }
+    }
+  }
+
+  .connect-btn {
+    @apply text-white bg-accent/10 hover:bg-secondary border border-accent/10 font-medium rounded-full text-xs pl-3 pr-1.5 py-1.5 align-baseline text-center inline-flex gap-1 items-center cursor-pointer outline-none focus:outline-0;
+    & .div {
+      @apply text-xs font-light tracking-wide leading-0;
+    }
+    & .icon {
+      @apply align-icon_2cap;
     }
   }
 
@@ -270,17 +266,27 @@
   }
 
   .list-transactions {
-    @apply flex flex-col justify-center w-full gap-2;
+    @apply flex flex-col justify-center w-full gap-2 hide-scrollbar;
   }
-  /* .list-tasks { */
-  /* .wrap-card_custom { */
-    /* @apply relative flex flex-col justify-center gap-2 w-full h-fit mt-20 mx-auto px-4 py-8
-      rounded-t-3xl border-2 border-b-0 border-accent/10; */
-    /* & .wrap-card_tasks {
-      @apply bg-wrap-card w-full h-full bg-center bg-cover absolute top-1 left-[50%] -translate-x-[50%] z-0; */
-      /* @apply bg-wrap-card w-full h-full bg-center bg-cover absolute top-[75%] left-[50%] -translate-[50%] z-0; */
-    /* } */
-  /* } */
+
+}
+
+@utility align-icon {
+  height: 1cap;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+}
+
+@utility align-icon_2cap {
+  height: 2cap;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+@utility bg-gradient_right {
+  @apply bg-gradient-to-r from-secondary/20 to-accent/0;
 }
 
 @utility hide-scrollbar {

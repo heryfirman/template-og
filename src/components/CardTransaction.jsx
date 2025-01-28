@@ -29,7 +29,7 @@ export const Card = (props) => {
         <div className="flex flex-col justify-between gap-1">
           <div className="relative flex align-baseline items-center gap-1.5">
             <div className="text-base font-medium tracking-wider leading-0">{abbr}</div>
-            <span className="inline-block px-2.5 text-[11px] font-light tracking-wide rounded-full border border-blue-700">
+            <span className="inline-block px-2.5 text-[10px] font-extralight tracking-wide rounded-full border border-secondary">
               XRD
             </span>
           </div>

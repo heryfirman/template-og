@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 export default function CardReferal() {
   const [isPremium, setIsPremium] = useState(true);
@@ -23,9 +24,7 @@ export default function CardReferal() {
       </div>
       <div className="bottom">
         <ButtonShare />
-        <button className="text-xs font-light tracking-wide italic my-4 cursor-pointer text-gray-500">
-          Maybe Later
-        </button>
+        <Link to='/' className="text-xs font-light tracking-wide italic my-4 cursor-pointer text-gray-500">Maybe Later</Link>
       </div>
     </div>
   );

@@ -1,23 +1,17 @@
-// import { ReactComponent as Turnover } from './rotate-circle.svg'
 import { useEffect, useRef, useState } from 'react'
-import Banner from '../components/Banner'
-import CardHistory from '../components/CardHistory'
-import CardLeaderboard from '../components/CardLeaderboard'
-import CardReferal from '../components/CardReferal'
-import CardTask from '../components/CardTask'
 import CardTransaction from '../components/CardTransaction'
 import CardWallet from '../components/CardWallet'
 import viteLogo from '/rotate-circle.svg'
 
 const Home = () => {
-    const [lists, setLists] = useState([])
+    const [transactionLists, setTransactionLists] = useState([])
     const loaded = useRef(false)
 
     useEffect(() => {
     if (loaded.current === false) {
         fetch("/transactions.json")
             .then((response) => response.json())
-            .then((data) => setLists(data))
+            .then((data) => setTransactionLists(data))
             .then(() => loaded.current = true)
     }
 
@@ -26,11 +20,11 @@ const Home = () => {
     }
     }, [loaded])
     
-    console.log(lists);
+    console.log(transactionLists);
     return (
         <div className="wrapper">
             <div className="card-info__total-asset">
-                <h4 className="text-xs font-light tracking-wide">Earned using by RDX</h4>
+                <h4 className="text-xs font-extralight tracking-wider">Earned using by RDX</h4>
                 <div className="flex flex-row justify-items-center items-center gap-2 mx-auto">
                     <div className="circle"></div>
                     <span className="text-4xl font-light tracking-wider">80.902.32</span>
@@ -49,20 +43,13 @@ const Home = () => {
                 </div>
             </div>
 
-            <h3 className='my-5 text-xl font-light leading-6 text-gray-400'>Last<br />
-            Transaction</h3>
-            {/* <div className="flex flex-col justify-center mb-28"> */}
-            {/* <div className="wrap-gradient_left">
-                <div className="content">
-                    <CardTransaction />
-                </div>
-            </div> */}
+            <h3 className='my-5 text-xl font-light leading-6 text-gray-400'>Last<br /> Transaction</h3>
 
-            <div className="list-transactions">
-                {lists.map((list) => (
-                    <CardTransaction key={list.id} token={list.tokenName} abbr={list.abbreviation} total={list.total} value={list.value} />
+            <ul className="list-transactions">
+                {transactionLists.map((t) => (
+                    <CardTransaction key={t.id} token={t.tokenName} abbr={t.abbreviation} total={t.total} value={t.value} />
                 ))}
-            </div>
+            </ul>
         </div>
     )
 }
