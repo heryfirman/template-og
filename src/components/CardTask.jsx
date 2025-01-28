@@ -1,8 +1,9 @@
-export default function CardTask({taskName}) {
+
+export default function CardTask({taskName, isDone}) {
     return (
-        <div className="card-task">
+        <div className={`card-task border" ${ isDone ? "border-accent/10 bg-accent/5" : "border-transparent bg-primary" } `}>
             <div>
-                <div className="w-10 h-10 overflow-hidden bg-primary">
+                <div className="w-10 h-10 overflow-hidden rounded-sm bg-primary">
                     <img src="./avatar.png" alt="" className="w-10 h-10"/>
                 </div>
                 <div className="flex flex-col h-10 mt-0.5">
@@ -13,8 +14,8 @@ export default function CardTask({taskName}) {
                     </div>
                 </div>
             </div>
-            <IconDone />
-            {/* <Icon /> */}
+            
+            {isDone ? <IconDone /> : <Icon />}
         </div>
     );
 }
@@ -34,7 +35,7 @@ export function Icon() {
 
 export function IconDone() {
     return (
-        <button className="flex justify-center items-center w-7 h-7 bg-accent/80 rounded-full cursor-pointer">
+        <button className="flex justify-center items-center w-7 h-7 bg-accent/80 rounded-full cursor-not-allowed">
             <span className="w-[18px] h-[18px] text-white">
                 <svg data-slot="icon" aria-hidden="true" fill="none" strokeWidth="4" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="m4.5 12.75 6 6 9-13.5" strokeLinecap="round" strokeLinejoin="round"></path>

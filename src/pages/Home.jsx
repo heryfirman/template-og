@@ -1,4 +1,5 @@
 // import { ReactComponent as Turnover } from './rotate-circle.svg'
+import { useEffect, useRef, useState } from 'react'
 import Banner from '../components/Banner'
 import CardHistory from '../components/CardHistory'
 import CardLeaderboard from '../components/CardLeaderboard'
@@ -9,6 +10,23 @@ import CardWallet from '../components/CardWallet'
 import viteLogo from '/rotate-circle.svg'
 
 const Home = () => {
+    const [lists, setLists] = useState([])
+    const loaded = useRef(false)
+
+    useEffect(() => {
+    if (loaded.current === false) {
+        fetch("/transactions.json")
+            .then((response) => response.json())
+            .then((data) => setLists(data))
+            .then(() => loaded.current = true)
+    }
+
+    return () => {
+        console.log('clean up');
+    }
+    }, [loaded])
+    
+    console.log(lists);
     return (
         <div className="wrapper">
             <div className="card-info__total-asset">
@@ -33,13 +51,17 @@ const Home = () => {
 
             <h3 className='my-5 text-xl font-light leading-6 text-gray-400'>Last<br />
             Transaction</h3>
-            <div className="flex flex-col justify-center mb-28">
-                <CardTransaction />
-                <CardTransaction />
-                <CardTransaction />
-                <CardTransaction />
-                <CardTransaction />
-                <CardTransaction />
+            {/* <div className="flex flex-col justify-center mb-28"> */}
+            {/* <div className="wrap-gradient_left">
+                <div className="content">
+                    <CardTransaction />
+                </div>
+            </div> */}
+
+            <div className="list-transactions">
+                {lists.map((list) => (
+                    <CardTransaction key={list.id} token={list.tokenName} abbr={list.abbreviation} total={list.total} value={list.value} />
+                ))}
             </div>
         </div>
     )

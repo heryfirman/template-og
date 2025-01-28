@@ -21,6 +21,7 @@
   --breakpoint-xs: 480px;
 
   --background-image-hero-pattern: url("/card_referalcode.png");
+  --background-image-wrap-card: url("/wrap-card_custom.svg");
 }
 
 @layer base {
@@ -60,11 +61,11 @@
   }
 
   .pattern {
-    @apply absolute w-full h-40 bg-gradient-to-b from-secondary to-primary z-0;
+    @apply absolute w-full h-40 bg-gradient-to-b from-secondary/60 to-primary z-0;
   }
 
   .wrapper {
-    @apply px-5 py-4 xs:p-10 max-w-[480px] mx-auto flex flex-col justify-items-center relative z-10 text-white;
+    @apply px-4 py-4 xs:p-10 max-w-[480px] mx-auto flex flex-col justify-items-center relative z-10 text-white;
   }
 
   .card-info__total-asset {
@@ -124,7 +125,7 @@
   }
 
   .card-transaction {
-    @apply flex justify-between my-2 p-4 rounded-2xl border border-red-400;
+    @apply flex justify-between my-0 p-3 rounded-2xl  bg-gradient-to-r from-secondary/20 to-accent/0;
     & .right {
       @apply flex gap-2.5;
       & .logo-crypto {
@@ -134,7 +135,7 @@
   }
 
   .card-task {
-    @apply flex justify-between items-center px-[17px] py-3.5 rounded-2xl border border-pink-500;
+    @apply flex justify-between items-center px-[17px] py-3.5 rounded-2xl;
     & div {
       @apply flex flex-row gap-2;
       & .icon {
@@ -147,7 +148,10 @@
   }
 
   .card-laderboard {
-    @apply flex justify-between my-2 px-[17px] py-3.5  rounded-2xl border border-orange-400;
+    @apply flex justify-between px-[17px] py-3 rounded-xl border border-accent/10 
+    /* bg-accent/5 */
+    odd:bg-accent/5 even:bg-primary
+    ;
     & .left {
       @apply relative flex items-center flex-auto gap-2;
       & .icon {
@@ -158,15 +162,15 @@
       }
     }
     & .right {
-      @apply w-7 h-9 px-0 py-[1px] -skew-3;
+      @apply w-7 h-9 px-0 py-px -skew-3;
       & .rank {
-        @apply w-full h-full text-center text-base font-semibold leading-9 bg-accent;
+        @apply w-full h-full text-center text-sm font-normal leading-9;
       }
     }
   }
 
   .card-referalcode {
-    @apply bg-hero-pattern bg-no-repeat w-[342px] h-[610px] flex justify-items-center flex-col text-center mx-auto px-7 border border-pink-600;
+    @apply bg-hero-pattern bg-no-repeat w-[342px] h-[610px] flex justify-items-center flex-col text-center mx-auto px-7;
     & div.top {
       @apply mt-20;
       & .text {
@@ -201,7 +205,7 @@
   }
 
   .card-history_game {
-    @apply flex justify-between my-2 p-4 rounded-2xl border border-red-400;
+    @apply flex justify-between my-0 p-3 rounded-2xl border border-accent/10 bg-primary;
     & .left {
       @apply flex items-center gap-3 w-fit;
       & .logo-crypto {
@@ -220,6 +224,63 @@
       }
     }
   }
+
+  .card_info-gameplay {
+    @apply flex flex-col justify-center flex-auto max-w-[110px] h-auto px-2 pt-3 pb-4 gap-1.5 rounded-xl border border-accent/10 bg-primary;
+    & .card-info {
+      @apply flex justify-center items-center align-baseline gap-1;
+      & .icon {
+        height: 1cap;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--color-secondary);
+      }
+    }
+  }
+
+  .wrap-gradient_left {
+    @apply relative inline-flex items-center justify-center p-0.5 my-0 overflow-hidden rounded-2xl bg-gradient-to-l from-secondary/20 to-accent/0;
+    & .content {
+      @apply relative w-full h-full flex flex-col justify-center gap-2 mx-auto px-0 py-0 bg-primary rounded-[14px];
+    }
+  }
+  .list-tasks {
+    @apply relative inline-flex items-center justify-center p-0.5 my-20 overflow-hidden rounded-3xl bg-gradient-to-b from-accent/10 to-primary;
+    & .content {
+      @apply relative w-full h-full flex flex-col justify-center gap-2 mx-auto px-4 py-8 bg-primary rounded-[22px];
+    }
+  }
+  
+  .list-leaderboard {
+    @apply relative inline-flex items-center justify-center p-0.5 my-14 overflow-hidden rounded-3xl bg-gradient-to-b from-accent/10 to-primary;
+    & .content {
+      @apply relative w-full h-full flex flex-col justify-center gap-2 mx-auto px-2 py-2 bg-primary rounded-[22px];
+    }
+  }
+
+  .list-card_info-gameplay {
+    @apply flex flex-row justify-evenly w-full;
+  }
+
+  .list-games {
+    @apply relative inline-flex items-center justify-center p-0.5 my-14 overflow-hidden rounded-3xl bg-gradient-to-b from-accent/10 to-primary;
+    & .content {
+      @apply relative w-full h-full flex flex-col justify-center gap-2 mx-auto px-2 py-2 bg-primary rounded-[22px];
+    }
+  }
+
+  .list-transactions {
+    @apply flex flex-col justify-center w-full gap-2;
+  }
+  /* .list-tasks { */
+  /* .wrap-card_custom { */
+    /* @apply relative flex flex-col justify-center gap-2 w-full h-fit mt-20 mx-auto px-4 py-8
+      rounded-t-3xl border-2 border-b-0 border-accent/10; */
+    /* & .wrap-card_tasks {
+      @apply bg-wrap-card w-full h-full bg-center bg-cover absolute top-1 left-[50%] -translate-x-[50%] z-0; */
+      /* @apply bg-wrap-card w-full h-full bg-center bg-cover absolute top-[75%] left-[50%] -translate-[50%] z-0; */
+    /* } */
+  /* } */
 }
 
 @utility hide-scrollbar {
