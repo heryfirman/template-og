@@ -55,6 +55,13 @@
   .reset-style_link {
     @apply outline-none focus:outline-none;
   }
+
+  a {
+    @apply text-gray-500;
+  }
+  a.active {
+    @apply text-accent;
+  }
 }
 
 @layer components {
